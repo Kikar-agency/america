@@ -3,1544 +3,850 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instituto América — Córdoba</title>
+<title>Instituto América — Educación Cristiana en Córdoba</title>
+<meta name="description" content="Instituto América es un colegio cristiano evangélico en Córdoba con más de 50 años formando estudiantes en valores, fe y excelencia académica. Niveles Inicial, Primario y Secundario.">
+<meta name="keywords" content="Instituto América Córdoba, colegio cristiano Córdoba, escuela evangélica Córdoba, nivel inicial primario secundario Córdoba">
+<meta property="og:title" content="Instituto América — Educación Cristiana en Córdoba">
+<meta property="og:description" content="Más de 50 años formando personas con valores, fe y excelencia académica en Córdoba, Argentina.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bordo: #6B1220;
-    --bordo-dark: #4A0C17;
-    --bordo-light: #8B1A2E;
-    --naranja: #E05A2B;
-    --naranja-light: #F07A50;
-    --gris-claro: #C8D4D0;
-    --crema: #F5F0E8;
-    --blanco: #FFFFFF;
-    --oscuro: #1A0A0D;
-    --texto: #2C1518;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Outfit', system-ui, sans-serif;
-    background: var(--crema);
-    color: var(--texto);
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─────────────────────────────────── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 0 4rem;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(106, 18, 32, 0.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    transition: all 0.3s ease;
-  }
-
-  nav.scrolled {
-    height: 60px;
-    background: rgba(74, 12, 23, 0.99);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--blanco);
-  }
-
-  .nav-logo-mark {
-    width: 40px; height: 40px;
-    background: var(--naranja);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 900;
-    font-size: 18px;
-    letter-spacing: -1px;
-    flex-shrink: 0;
-  }
-
-  .nav-logo-text {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    line-height: 1.3;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-    position: relative;
-  }
-
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0; height: 2px;
-    background: var(--naranja);
-    transition: width 0.3s ease;
-  }
-
-  .nav-links a:hover { color: var(--blanco); }
-  .nav-links a:hover::after { width: 100%; }
-
-  .nav-cta {
-    padding: 8px 20px;
-    background: var(--naranja);
-    color: var(--blanco) !important;
-    border-radius: 4px;
-    font-weight: 600 !important;
-  }
-
-  .nav-cta::after { display: none !important; }
-  .nav-cta:hover { background: var(--naranja-light) !important; }
-
-  /* ─── HERO ────────────────────────────────── */
-  .hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background: var(--bordo-dark);
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 70% 50%, rgba(224,90,43,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 20% 80%, rgba(107,18,32,0.8) 0%, transparent 50%),
-      linear-gradient(135deg, var(--bordo-dark) 0%, #3A0A14 50%, #2A0810 100%);
-  }
-
-  /* Geometric decorative element */
-  .hero-geo {
-    position: absolute;
-    right: -80px; top: 50%;
-    transform: translateY(-50%);
-    width: 600px; height: 600px;
-    opacity: 0.12;
-  }
-
-  .hero-geo circle {
-    fill: none;
-    stroke: var(--naranja);
-    vector-effect: non-scaling-stroke;
-  }
-
-  .hero-image-container {
-    position: absolute;
-    right: 0; top: 0; bottom: 0;
-    width: 50%;
-    overflow: hidden;
-  }
-
-  .hero-image-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(to left, rgba(74,12,23,0) 0%, var(--bordo-dark) 100%),
-                linear-gradient(135deg, #3D1520 0%, #5C1E2A 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: rgba(255,255,255,0.2);
-    font-size: 13px;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .placeholder-icon {
-    width: 64px; height: 64px;
-    border: 2px dashed rgba(255,255,255,0.2);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-  }
-
-  .placeholder-prompt {
-    font-size: 11px;
-    line-height: 1.6;
-    max-width: 260px;
-    color: rgba(255,255,255,0.15);
-    font-style: italic;
-    margin-top: 8px;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 4rem;
-    max-width: 640px;
-    animation: fadeUp 0.9s ease both;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--naranja);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    width: 30px; height: 2px;
-    background: var(--naranja);
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 1.05;
-    color: var(--blanco);
-    margin-bottom: 1.5rem;
-    font-weight: 900;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--naranja);
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.65);
-    font-weight: 300;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    padding: 14px 32px;
-    background: var(--naranja);
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-primary:hover {
-    background: var(--naranja-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(224,90,43,0.4);
-  }
-
-  .btn-secondary {
-    padding: 14px 32px;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-  }
-
-  .btn-secondary:hover {
-    border-color: rgba(255,255,255,0.7);
-    background: rgba(255,255,255,0.05);
-    transform: translateY(-2px);
-  }
-
-  .hero-stats {
-    position: absolute;
-    bottom: 3rem; left: 4rem;
-    display: flex;
-    gap: 3rem;
-    z-index: 2;
-    animation: fadeUp 1.1s ease 0.3s both;
-  }
-
-  .stat {
-    color: var(--blanco);
-  }
-
-  .stat-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--naranja);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 12px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  /* Scroll indicator */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 3rem;
-    right: 4rem;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.3);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    animation: float 2s ease-in-out infinite;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 48px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-  }
-
-  /* ─── NOSOTROS ────────────────────────────── */
-  .section {
-    padding: 7rem 4rem;
-  }
-
-  .section-header {
-    margin-bottom: 4rem;
-  }
-
-  .section-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--naranja);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .section-tag::before {
-    content: '';
-    width: 24px; height: 2px;
-    background: var(--naranja);
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--bordo-dark);
-  }
-
-  /* Nosotros */
-  .nosotros {
-    background: var(--crema);
-  }
-
-  .nosotros-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .nosotros-image {
-    position: relative;
-  }
-
-  .img-placeholder {
-    width: 100%;
-    aspect-ratio: 4/3;
-    background: linear-gradient(135deg, #e8ddd0 0%, #d4c5b5 100%);
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: rgba(0,0,0,0.25);
-    font-size: 12px;
-    border: 2px dashed rgba(0,0,0,0.12);
-    overflow: hidden;
-    position: relative;
-  }
-
-  .img-placeholder-inner {
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .img-placeholder-inner .icon {
-    font-size: 32px;
-    display: block;
-    margin-bottom: 8px;
-    opacity: 0.4;
-  }
-
-  .img-placeholder-inner .prompt-label {
-    font-size: 10px;
-    opacity: 0.5;
-    font-style: italic;
-    line-height: 1.5;
-    max-width: 200px;
-  }
-
-  .nosotros-accent-box {
-    position: absolute;
-    bottom: -24px; right: -24px;
-    width: 140px; height: 140px;
-    background: var(--bordo);
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--blanco);
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .accent-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.8rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--naranja);
-  }
-
-  .accent-text {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    opacity: 0.8;
-    line-height: 1.3;
-    margin-top: 4px;
-  }
-
-  .nosotros-text h2 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--bordo-dark);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-
-  .nosotros-text p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #4A3038;
-    margin-bottom: 1.2rem;
-    font-weight: 300;
-  }
-
-  .pilares {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .pilar {
-    padding: 1.2rem 1.4rem;
-    border-left: 3px solid var(--naranja);
-    background: rgba(107,18,32,0.04);
-    border-radius: 0 4px 4px 0;
-  }
-
-  .pilar-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--bordo);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .pilar-desc {
-    font-size: 13px;
-    color: #5A3D45;
-    line-height: 1.5;
-  }
-
-  /* ─── NIVELES ─────────────────────────────── */
-  .niveles {
-    background: var(--bordo-dark);
-    color: var(--blanco);
-  }
-
-  .niveles .section-title { color: var(--blanco); }
-
-  .niveles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 3rem;
-  }
-
-  .nivel-card {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 3/4;
-    cursor: pointer;
-  }
-
-  .nivel-bg {
-    width: 100%; height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.5s ease;
-  }
-
-  .nivel-card:hover .nivel-bg {
-    transform: scale(1.05);
-  }
-
-  .nivel-bg-1 { background: linear-gradient(160deg, #4A0F1E 0%, #2E0812 100%); }
-  .nivel-bg-2 { background: linear-gradient(160deg, #6B1220 0%, #4A0C17 100%); }
-  .nivel-bg-3 { background: linear-gradient(160deg, #8B1A2E 0%, #6B1220 100%); }
-
-  .nivel-img-placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: rgba(255,255,255,0.15);
-    text-align: center;
-    padding: 2rem;
-    font-style: italic;
-  }
-
-  .nivel-img-placeholder .icon {
-    font-size: 32px;
-    opacity: 0.3;
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .nivel-overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 2rem 1.8rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-    transform: translateY(60px);
-    transition: transform 0.4s ease;
-  }
-
-  .nivel-card:hover .nivel-overlay {
-    transform: translateY(0);
-  }
-
-  .nivel-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--naranja);
-    opacity: 0.4;
-    line-height: 1;
-    display: block;
-  }
-
-  .nivel-name {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--blanco);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .nivel-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  .nivel-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--naranja);
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    margin-top: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  /* ─── VIDA ESCOLAR / PROYECTOS ────────────── */
-  .proyectos {
-    background: var(--crema);
-    padding: 7rem 4rem;
-  }
-
-  .proyectos-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .proyectos-header .section-title {
-    max-width: 480px;
-  }
-
-  .proyectos-scroll {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .proyecto-card {
-    background: var(--blanco);
-    border-radius: 6px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-
-  .proyecto-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(107,18,32,0.12);
-  }
-
-  .proyecto-img {
-    aspect-ratio: 16/10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: rgba(0,0,0,0.25);
-    text-align: center;
-    padding: 1rem;
-    font-style: italic;
-    gap: 6px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .proyecto-img-1 { background: linear-gradient(135deg, #F0E8E0, #E0D0C0); }
-  .proyecto-img-2 { background: linear-gradient(135deg, #E0E8F0, #C8D8E8); }
-  .proyecto-img-3 { background: linear-gradient(135deg, #E8E0F0, #D0C8E0); }
-
-  .proyecto-tag {
-    position: absolute;
-    top: 12px; left: 12px;
-    padding: 4px 10px;
-    background: var(--bordo);
-    color: var(--blanco);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-radius: 2px;
-  }
-
-  .proyecto-tag.naranja { background: var(--naranja); }
-
-  .proyecto-body {
-    padding: 1.4rem;
-  }
-
-  .proyecto-fecha {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--naranja);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-  }
-
-  .proyecto-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--bordo-dark);
-    line-height: 1.3;
-    margin-bottom: 10px;
-  }
-
-  .proyecto-excerpt {
-    font-size: 13px;
-    color: #5A4048;
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  .proyecto-footer {
-    padding: 0 1.4rem 1.4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .proyecto-autor {
-    font-size: 12px;
-    color: #9A8090;
-    font-weight: 400;
-  }
-
-  .proyecto-arrow {
-    width: 32px; height: 32px;
-    border: 1px solid rgba(107,18,32,0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--bordo);
-    font-size: 14px;
-    transition: all 0.2s;
-  }
-
-  .proyecto-card:hover .proyecto-arrow {
-    background: var(--bordo);
-    color: var(--blanco);
-  }
-
-  /* ─── VALORES / STRIP ─────────────────────── */
-  .values-strip {
-    background: var(--bordo);
-    padding: 4rem;
-    display: flex;
-    gap: 0;
-    overflow: hidden;
-  }
-
-  .value-item {
-    flex: 1;
-    padding: 2rem 2.5rem;
-    border-right: 1px solid rgba(255,255,255,0.1);
-    transition: background 0.3s;
-  }
-
-  .value-item:last-child { border-right: none; }
-
-  .value-item:hover {
-    background: rgba(255,255,255,0.05);
-  }
-
-  .value-icon {
-    width: 48px; height: 48px;
-    background: rgba(224,90,43,0.2);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    margin-bottom: 1.2rem;
-    border: 1px solid rgba(224,90,43,0.3);
-  }
-
-  .value-name {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--blanco);
-    margin-bottom: 8px;
-  }
-
-  .value-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  /* ─── ADMISIONES ──────────────────────────── */
-  .admisiones {
-    background: var(--crema);
-    padding: 7rem 4rem;
-  }
-
-  .admisiones-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .proceso-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .step {
-    display: flex;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(107,18,32,0.1);
-    position: relative;
-  }
-
-  .step:last-child { border-bottom: none; }
-
-  .step-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--naranja);
-    opacity: 0.4;
-    line-height: 1;
-    flex-shrink: 0;
-    width: 40px;
-    text-align: right;
-  }
-
-  .step-content h4 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--bordo-dark);
-    margin-bottom: 4px;
-    letter-spacing: 0.02em;
-  }
-
-  .step-content p {
-    font-size: 13px;
-    color: #6A5058;
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  .admisiones-cta {
-    background: var(--bordo-dark);
-    border-radius: 8px;
-    padding: 3rem;
-    color: var(--blanco);
-  }
-
-  .admisiones-cta h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
-  .admisiones-cta p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-
-  .admisiones-detail {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    margin-bottom: 2rem;
-  }
-
-  .detail-row {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .detail-row span:first-child {
-    color: var(--naranja);
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  /* ─── CONTACTO ────────────────────────────── */
-  .contacto {
-    background: var(--oscuro);
-    padding: 7rem 4rem;
-    color: var(--blanco);
-  }
-
-  .contacto-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .contacto-info h2 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--blanco);
-  }
-
-  .contacto-info h2 em {
-    color: var(--naranja);
-    font-style: italic;
-  }
-
-  .contacto-info p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 2.5rem;
-  }
-
-  .contacto-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .contact-item {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-  }
-
-  .contact-icon {
-    width: 40px; height: 40px;
-    background: rgba(224,90,43,0.15);
-    border: 1px solid rgba(224,90,43,0.25);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  .contact-text {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-  }
-
-  .contact-text strong {
-    display: block;
-    font-weight: 600;
-    color: var(--blanco);
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 2px;
-  }
-
-  .contacto-form {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 2.5rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-group label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px;
-    padding: 12px 14px;
-    color: var(--blanco);
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: rgba(255,255,255,0.2);
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--naranja);
-  }
-
-  .form-group select option {
-    background: var(--oscuro);
-  }
-
-  .form-group textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-
-  .form-full { grid-column: 1/-1; }
-
-  .form-submit {
-    margin-top: 1rem;
-  }
-
-  .form-submit .btn-primary {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* ─── FOOTER ──────────────────────────────── */
-  footer {
-    background: #0D0507;
-    padding: 3rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--blanco);
-    text-decoration: none;
-  }
-
-  .footer-nav {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-nav a {
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .footer-nav a:hover { color: rgba(255,255,255,0.8); }
-
-  .footer-copy {
-    font-size: 12px;
-    color: rgba(255,255,255,0.2);
-  }
-
-  /* ─── ANIMATIONS ──────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.animate-in {
-    animation: revealUp 0.7s ease both;
-  }
-
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-  /* Mobile menu */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-  }
-
-  .hamburger span {
-    width: 24px; height: 2px;
-    background: var(--blanco);
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
-
-  /* ─── RESPONSIVE ──────────────────────────── */
-  @media (max-width: 1024px) {
-    nav { padding: 0 2rem; }
-    .nav-links { gap: 1.5rem; }
-
-    .section { padding: 5rem 2rem; }
-    .hero-content { padding: 0 2rem; }
-    .hero-stats { left: 2rem; }
-    .scroll-indicator { right: 2rem; }
-
-    .nosotros-grid,
-    .admisiones-grid,
-    .contacto-grid { grid-template-columns: 1fr; }
-
-    .niveles-grid { grid-template-columns: 1fr; }
-    .nivel-card { aspect-ratio: 16/9; }
-    .nivel-overlay { transform: translateY(0); }
-
-    .proyectos-scroll { grid-template-columns: 1fr 1fr; }
-    .values-strip { flex-direction: column; gap: 0; }
-    .value-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-
-    .hero-image-container { display: none; }
-  }
-
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-
-    .hero-title { font-size: 2.5rem; }
-    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
-    .section { padding: 4rem 1.5rem; }
-    .proyectos, .admisiones, .contacto { padding: 4rem 1.5rem; }
-    .proyectos-scroll { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
-    .footer-nav { flex-wrap: wrap; justify-content: center; }
-    .values-strip { padding: 2rem 1.5rem; }
-  }
+/* ─── RESET & VARS ─────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bordo:#4A0C17;
+  --bordo2:#6B1220;
+  --bordo3:#8B1A2E;
+  --naranja:#E05A2B;
+  --naranja2:#F07A50;
+  --crema:#F5F0E8;
+  --blanco:#FFFFFF;
+  --oscuro:#1A0A0D;
+  --texto:#2C1518;
+  --gris:#7A6065;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--crema);color:var(--texto);overflow-x:hidden}
+
+/* ─── NAV ──────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;padding:0 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(74,12,23,0.97);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:all .3s ease;
+}
+nav.scrolled{height:56px;box-shadow:0 4px 24px rgba(0,0,0,.3)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--blanco)}
+.nav-logo-mark{width:36px;height:36px;background:var(--naranja);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:15px;flex-shrink:0}
+.nav-logo-text{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;padding:4px 0;border-bottom:2px solid transparent;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:#fff;border-bottom-color:var(--naranja)}
+.nav-cta{padding:7px 18px!important;background:var(--naranja)!important;color:#fff!important;border-radius:4px!important;border:none!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--naranja2)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s;display:block}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--bordo);z-index:199;padding:1.5rem;flex-direction:column;gap:1rem;border-bottom:2px solid var(--naranja)}
+.mobile-menu a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.1);cursor:pointer}
+.mobile-menu.open{display:flex}
+
+/* ─── PAGES ────────────────────────────────────────────── */
+.page{display:none;min-height:100vh;padding-top:68px}
+.page.active{display:block}
+
+/* ─── PROGRESSIVE BLUR ─────────────────────────────────── */
+.prog-blur{
+  pointer-events:none;position:absolute;left:0;width:100%;user-select:none;z-index:10;
+}
+.prog-blur-top{
+  top:0;
+  background:linear-gradient(to top,transparent,var(--crema));
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  mask-image:linear-gradient(to bottom,var(--crema) 50%,transparent);
+}
+.prog-blur-bottom{
+  bottom:0;
+  background:linear-gradient(to bottom,transparent,var(--crema));
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  mask-image:linear-gradient(to top,var(--crema) 50%,transparent);
+}
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;position:relative;display:flex;align-items:center;
+  background:var(--bordo);overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(224,90,43,.12) 0%,transparent 60%),linear-gradient(135deg,var(--bordo) 0%,#2A0810 100%)}
+.hero-img-half{position:absolute;right:0;top:0;bottom:0;width:50%;overflow:hidden}
+.hero-img-half img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-img-half::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bordo) 0%,transparent 40%);z-index:1}
+.hero-content{position:relative;z-index:2;padding:0 3rem;max-width:600px;animation:fadeUp .8s ease both}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--naranja);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--naranja)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.06;color:#fff;font-weight:900;margin-bottom:1.4rem}
+.hero-title em{font-style:italic;color:var(--naranja)}
+.hero-sub{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.62);font-weight:300;max-width:460px;margin-bottom:2.4rem}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn-primary{padding:13px 28px;background:var(--naranja);color:#fff;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;transition:all .2s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:none}
+.btn-primary:hover{background:var(--naranja2);transform:translateY(-2px);box-shadow:0 8px 20px rgba(224,90,43,.4)}
+.btn-sec{padding:13px 28px;border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;transition:all .2s;cursor:pointer;background:none}
+.btn-sec:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.05)}
+.hero-stats{position:absolute;bottom:2.5rem;left:3rem;display:flex;gap:2.5rem;z-index:2;animation:fadeUp 1s ease .3s both}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--naranja);line-height:1}
+.stat-label{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+
+/* ─── SECTIONS GENERAL ─────────────────────────────────── */
+.section{padding:6rem 3rem}
+.section-sm{padding:4rem 3rem}
+.section-dark{background:var(--bordo);color:#fff}
+.section-darker{background:var(--oscuro);color:#fff}
+.section-tag{display:inline-flex;align-items:center;gap:8px;color:var(--naranja);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.8rem}
+.section-tag::before{content:'';width:22px;height:2px;background:var(--naranja)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:700;line-height:1.15}
+.section-title-light{color:#fff}
+.section-title-dark{color:var(--bordo)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ─── NOSOTROS (HOME) ──────────────────────────────────── */
+.nosotros-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.nosotros-img-wrap{position:relative}
+.nosotros-img-wrap img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.accent-box{position:absolute;bottom:-20px;right:-20px;width:130px;height:130px;background:var(--bordo);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:.8rem}
+.accent-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--naranja);line-height:1}
+.accent-lbl{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.8;margin-top:3px;line-height:1.3}
+.pilares{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.8rem}
+.pilar{padding:1rem 1.2rem;border-left:3px solid var(--naranja);background:rgba(107,18,32,.05);border-radius:0 4px 4px 0}
+.pilar-t{font-size:13px;font-weight:600;color:var(--bordo);letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.pilar-d{font-size:12px;color:var(--gris);line-height:1.5}
+.nosotros-text p{font-size:1.02rem;line-height:1.8;color:#4A3038;margin-bottom:1rem;font-weight:300}
+
+/* ─── VERSICULO STRIP ──────────────────────────────────── */
+.versiculo{background:var(--bordo2);padding:2.5rem 3rem;text-align:center}
+.versiculo blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:rgba(255,255,255,.9);max-width:680px;margin:0 auto;line-height:1.6}
+.versiculo cite{display:block;margin-top:.8rem;font-size:13px;color:var(--naranja);font-style:normal;font-weight:600;letter-spacing:.08em}
+
+/* ─── NIVELES ──────────────────────────────────────────── */
+.niveles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:2.5rem}
+.nivel-card{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:pointer}
+.nivel-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.nivel-card:hover img{transform:scale(1.05)}
+.nivel-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,13,.9) 0%,rgba(26,10,13,.2) 50%,transparent 100%);z-index:1}
+.nivel-overlay{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1.8rem;transform:translateY(52px);transition:transform .4s ease}
+.nivel-card:hover .nivel-overlay{transform:translateY(0)}
+.nivel-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--naranja);opacity:.35;line-height:1;display:block}
+.nivel-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;display:block;margin-bottom:.4rem}
+.nivel-desc{font-size:12.5px;color:rgba(255,255,255,.65);line-height:1.6;font-weight:300}
+.nivel-link{display:inline-flex;align-items:center;gap:5px;color:var(--naranja);font-size:12px;font-weight:600;text-decoration:none;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+
+/* ─── VALUES STRIP ─────────────────────────────────────── */
+.values-strip{background:var(--bordo);display:grid;grid-template-columns:repeat(4,1fr)}
+.value-item{padding:2rem 2rem;border-right:1px solid rgba(255,255,255,.08);transition:background .3s}
+.value-item:last-child{border-right:none}
+.value-item:hover{background:rgba(255,255,255,.04)}
+.value-icon{font-size:20px;margin-bottom:1rem}
+.value-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.value-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;font-weight:300}
+
+/* ─── NOVEDADES ────────────────────────────────────────── */
+.novedades-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2rem}
+.novedad-card{background:#fff;border-radius:6px;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer}
+.novedad-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(107,18,32,.1)}
+.novedad-img{aspect-ratio:16/10;overflow:hidden;position:relative}
+.novedad-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.novedad-card:hover .novedad-img img{transform:scale(1.04)}
+.novedad-tag{position:absolute;top:12px;left:12px;padding:4px 10px;background:var(--bordo);color:#fff;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
+.novedad-body{padding:1.3rem}
+.novedad-fecha{font-size:11px;font-weight:500;color:var(--naranja);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.novedad-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--bordo);line-height:1.3;margin-bottom:.6rem}
+.novedad-excerpt{font-size:12.5px;color:var(--gris);line-height:1.7;font-weight:300}
+
+/* ─── ADMISIONES ───────────────────────────────────────── */
+.admisiones-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.proceso-steps{display:flex;flex-direction:column}
+.step{display:flex;gap:1.4rem;padding:1.3rem 0;border-bottom:1px solid rgba(107,18,32,.1)}
+.step:last-child{border-bottom:none}
+.step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--naranja);opacity:.35;flex-shrink:0;width:36px;text-align:right;line-height:1}
+.step h4{font-size:14px;font-weight:600;color:var(--bordo);margin-bottom:3px}
+.step p{font-size:12.5px;color:var(--gris);line-height:1.6;font-weight:300}
+.admisiones-box{background:var(--bordo);border-radius:6px;padding:2.5rem;color:#fff}
+.admisiones-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:.8rem;line-height:1.2}
+.admisiones-box p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;font-weight:300;margin-bottom:1.8rem}
+.detail-row{display:flex;gap:10px;font-size:12.5px;color:rgba(255,255,255,.7);margin-bottom:.7rem;align-items:flex-start}
+.detail-row span:first-child{color:var(--naranja);flex-shrink:0;font-size:15px}
+
+/* ─── REFLEXION ────────────────────────────────────────── */
+.reflexion-wrap{max-width:720px;margin:0 auto}
+.reflexion-content{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:2rem 2.5rem;position:relative}
+.reflexion-content::before{content:'"';position:absolute;top:-1rem;left:1.5rem;font-family:'Playfair Display',serif;font-size:5rem;color:var(--naranja);opacity:.3;line-height:1}
+.reflexion-titulo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:1rem}
+.reflexion-texto{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.85;font-weight:300}
+.reflexion-texto em{color:rgba(255,255,255,.85);font-style:italic}
+.reflexion-oracion{margin-top:1.2rem;padding:1rem 1.2rem;background:rgba(224,90,43,.12);border-left:3px solid var(--naranja);border-radius:0 4px 4px 0}
+.reflexion-oracion p{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.7;font-style:italic}
+.reflexion-versiculo{margin-top:1.2rem;font-size:12px;color:var(--naranja);font-style:italic;text-align:right}
+
+/* ─── CONTACTO ─────────────────────────────────────────── */
+.contacto-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start}
+.contact-item{display:flex;gap:12px;align-items:center;margin-bottom:1rem}
+.contact-icon{width:38px;height:38px;background:rgba(224,90,43,.15);border:1px solid rgba(224,90,43,.25);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.contact-text strong{display:block;font-size:11px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.contact-text span{font-size:13px;color:rgba(255,255,255,.65)}
+.contacto-form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:.9rem}
+.form-group label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:11px 13px;color:#fff;font-family:'Outfit',sans-serif;font-size:13.5px;outline:none;transition:border-color .2s;width:100%}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--naranja)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.2)}
+.form-group select option{background:var(--oscuro)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-submit .btn-primary{width:100%;justify-content:center}
+
+/* ─── PAGE HEADER ──────────────────────────────────────── */
+.page-header{background:var(--bordo);padding:5rem 3rem 3.5rem;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;right:-100px;top:-100px;width:400px;height:400px;border-radius:50%;background:rgba(224,90,43,.07)}
+.page-header-tag{display:inline-flex;align-items:center;gap:8px;color:var(--naranja);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.8rem}
+.page-header-tag::before{content:'';width:22px;height:2px;background:var(--naranja)}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.15;max-width:600px}
+.page-header p{font-size:1rem;color:rgba(255,255,255,.6);margin-top:.8rem;max-width:560px;font-weight:300;line-height:1.7}
+
+/* ─── DOCENTES PAGE ────────────────────────────────────── */
+.docentes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.docente-card{background:#fff;border-radius:6px;overflow:hidden;display:flex;gap:1.4rem;padding:1.4rem;box-shadow:0 2px 12px rgba(107,18,32,.06)}
+.docente-img{width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid var(--naranja)}
+.docente-info h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--bordo);margin-bottom:3px}
+.docente-info .cargo{font-size:11px;font-weight:600;color:var(--naranja);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem}
+.docente-info p{font-size:12.5px;color:var(--gris);line-height:1.6;font-weight:300}
+
+/* ─── VIDA ACADEMICA PAGE ──────────────────────────────── */
+.academica-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.tab-btn{padding:9px 20px;border:1px solid rgba(107,18,32,.2);border-radius:4px;font-size:13px;font-weight:500;color:var(--bordo);cursor:pointer;transition:all .2s;background:none;letter-spacing:.04em}
+.tab-btn.active,.tab-btn:hover{background:var(--bordo);color:#fff;border-color:var(--bordo)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.academica-content{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+.academica-content img{width:100%;border-radius:4px;object-fit:cover;aspect-ratio:4/3}
+.academica-content h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--bordo);margin-bottom:1rem}
+.academica-content p{font-size:13.5px;color:var(--gris);line-height:1.8;margin-bottom:.9rem;font-weight:300}
+.blur-section{position:relative;overflow:hidden}
+.blur-overlay{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,var(--crema));-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);mask-image:linear-gradient(to top,var(--crema) 40%,transparent);display:flex;align-items:flex-end;padding-bottom:1.2rem;justify-content:center}
+.blur-overlay span{font-size:12px;color:var(--gris);font-style:italic}
+.curricula-placeholder{background:rgba(107,18,32,.04);border:2px dashed rgba(107,18,32,.15);border-radius:6px;padding:2.5rem;text-align:center;color:var(--gris);font-size:13px;font-style:italic;line-height:1.7}
+
+/* ─── NOSOTROS PAGE ────────────────────────────────────── */
+.mision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.mision-card{padding:1.8rem;background:#fff;border-radius:6px;box-shadow:0 2px 12px rgba(107,18,32,.06);border-top:3px solid var(--naranja)}
+.mision-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--bordo);margin-bottom:.7rem}
+.mision-card p{font-size:13px;color:var(--gris);line-height:1.7;font-weight:300}
+.historia-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2rem}
+.historia-grid img{width:100%;border-radius:4px;object-fit:cover;aspect-ratio:4/3}
+.historia-text p{font-size:13.5px;color:var(--gris);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:2rem}
+.galeria-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px;transition:transform .3s;cursor:pointer}
+.galeria-grid img:hover{transform:scale(1.03)}
+
+/* ─── FOOTER ───────────────────────────────────────────── */
+footer{background:var(--oscuro);padding:3rem 3rem 1.5rem}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-brand p{font-size:12.5px;color:rgba(255,255,255,.4);line-height:1.7;margin-top:.8rem;font-weight:300;max-width:240px}
+.footer-col h4{font-size:11px;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+.footer-col a,.footer-col span{display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:.5rem;transition:color .2s;cursor:pointer}
+.footer-col a:hover{color:var(--naranja)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.footer-bottom p{font-size:11px;color:rgba(255,255,255,.2)}
+.footer-bottom a{font-size:11px;color:rgba(255,255,255,.35);text-decoration:none}
+.footer-bottom a:hover{color:var(--naranja)}
+
+/* ─── ANIMATIONS ───────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media(max-width:1024px){
+  nav{padding:0 1.5rem}
+  .nav-links{gap:1.2rem}
+  .section,.section-sm{padding:4.5rem 1.5rem}
+  .nosotros-grid,.admisiones-grid,.contacto-grid,.historia-grid,.academica-content{grid-template-columns:1fr}
+  .niveles-grid{grid-template-columns:1fr}
+  .nivel-card{aspect-ratio:16/9}
+  .nivel-overlay{transform:translateY(0)}
+  .values-strip{grid-template-columns:1fr 1fr}
+  .novedades-grid{grid-template-columns:1fr 1fr}
+  .mision-grid{grid-template-columns:1fr 1fr}
+  .docentes-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .galeria-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-img-half{display:none}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-content{padding:0 1.5rem}
+  .hero-stats{left:1.5rem;flex-wrap:wrap;gap:1.2rem}
+  .section,.section-sm{padding:3.5rem 1.2rem}
+  .form-row{grid-template-columns:1fr}
+  .novedades-grid{grid-template-columns:1fr}
+  .mision-grid{grid-template-columns:1fr}
+  .values-strip{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .page-header{padding:4rem 1.5rem 2.5rem}
+  .pilares{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- ─── NAV ─────────────────────────── -->
+<!-- ─── NAV ──────────────────────────────────────────────── -->
 <nav id="navbar">
-  <a href="#" class="nav-logo">
+  <a class="nav-logo" onclick="showPage('home')">
     <div class="nav-logo-mark">IA</div>
     <div class="nav-logo-text">Instituto<br>América</div>
   </a>
   <ul class="nav-links">
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#niveles">Niveles</a></li>
-    <li><a href="#proyectos">Vida Escolar</a></li>
-    <li><a href="#admisiones">Admisiones</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-    <li><a href="#contacto" class="nav-cta">Inscribirse</a></li>
+    <li><a onclick="showPage('home')" data-page="home">Inicio</a></li>
+    <li><a onclick="showPage('nosotros')" data-page="nosotros">Nosotros</a></li>
+    <li><a onclick="showPage('academica')" data-page="academica">Vida Académica</a></li>
+    <li><a onclick="showPage('docentes')" data-page="docentes">Docentes</a></li>
+    <li><a onclick="showPage('novedades')" data-page="novedades">Novedades</a></li>
+    <li><a onclick="showPage('contacto')" data-page="contacto" class="nav-cta">Contacto</a></li>
+    <li><a href="https://deioweb.com.ar/SAG/" target="_blank" style="border-bottom:none;opacity:.6;font-size:11px">Autogestión ↗</a></li>
   </ul>
-  <div class="hamburger">
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
-<!-- ─── HERO ─────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-image-container">
-<img src="img/hero.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Instituto América">
-  </div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Córdoba, Argentina · Desde 1974</div>
-    <h1 class="hero-title">
-      Formamos personas,<br>
-      <em>construimos</em><br>
-      futuro.
-    </h1>
-    <p class="hero-subtitle">
-      En Instituto América educamos con valores, excelencia académica y compromiso comunitario. Un espacio donde cada alumno desarrolla su potencial único.
-    </p>
-    <div class="hero-actions">
-      <a href="#admisiones" class="btn-primary">
-        Conocé las inscripciones →
-      </a>
-      <a href="#nosotros" class="btn-secondary">
-        Quiénes somos
-      </a>
-    </div>
-  </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');toggleMenu()">Inicio</a>
+  <a onclick="showPage('nosotros');toggleMenu()">Nosotros</a>
+  <a onclick="showPage('academica');toggleMenu()">Vida Académica</a>
+  <a onclick="showPage('docentes');toggleMenu()">Docentes</a>
+  <a onclick="showPage('novedades');toggleMenu()">Novedades</a>
+  <a onclick="showPage('contacto');toggleMenu()">Contacto</a>
+  <a href="https://deioweb.com.ar/SAG/" target="_blank">Autogestión ↗</a>
+</div>
 
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">50+</div>
-      <div class="stat-label">Años formando</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">1,200</div>
-      <div class="stat-label">Alumnos activos</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">98%</div>
-      <div class="stat-label">Egresados universitarios</div>
-    </div>
-  </div>
+<!-- ════════════════════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
 
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- ─── NOSOTROS ──────────────────────── -->
-<section class="nosotros section" id="nosotros">
-  <div class="nosotros-grid">
-    <div class="nosotros-image reveal">
-      <img src="img/patio.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;" alt="Fachada Instituto América">
-      <div class="nosotros-accent-box">
-        <div class="accent-num">50</div>
-        <div class="accent-text">Años<br>educando</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-img-half">
+      <img src="https://trompo.ar/america/wp-content/uploads/2025/05/Instituto-America-17.webp" alt="Alumnos Instituto América" loading="lazy">
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Córdoba, Argentina · Desde 1974</div>
+      <h1 class="hero-title">
+        Formamos personas,<br>
+        <em>construimos</em><br>
+        futuro.
+      </h1>
+      <p class="hero-sub">Somos un colegio cristiano evangélico dedicado a la formación integral de nuestros estudiantes, combinando excelencia académica con principios y valores basados en la fe cristiana.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('contacto')">Conocé las inscripciones →</button>
+        <button class="btn-sec" onclick="showPage('nosotros')">Quiénes somos</button>
       </div>
     </div>
-    <div class="nosotros-text reveal reveal-delay-1">
-      <div class="section-tag">Nuestra institución</div>
-      <h2>Una comunidad educativa con identidad y propósito</h2>
-      <p>
-        Instituto América nació con la convicción de que la educación transforma vidas. A lo largo de más de cinco décadas, construimos una comunidad donde docentes, alumnos y familias caminan juntos hacia un horizonte de crecimiento personal y colectivo.
-      </p>
-      <p>
-        Nuestro enfoque integra la excelencia académica con la formación en valores cristianos, preparando a los jóvenes para enfrentar los desafíos del mundo con pensamiento crítico, creatividad y compromiso social.
-      </p>
-      <div class="pilares">
-        <div class="pilar">
-          <div class="pilar-title">Fe y Valores</div>
-          <div class="pilar-desc">Formación humana integral desde una perspectiva cristiana</div>
+    <div class="hero-stats">
+      <div><div class="stat-num" data-target="50" data-suffix="+">50+</div><div class="stat-label">Años formando</div></div>
+      <div><div class="stat-num" data-target="1200" data-suffix="">1,200</div><div class="stat-label">Alumnos activos</div></div>
+      <div><div class="stat-num" data-target="98" data-suffix="%">98%</div><div class="stat-label">Egresados universitarios</div></div>
+    </div>
+  </section>
+
+  <!-- VERSÍCULO -->
+  <div class="versiculo">
+    <blockquote>
+      «Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él.»
+      <cite>Proverbios 22:6</cite>
+    </blockquote>
+  </div>
+
+  <!-- NOSOTROS (preview) -->
+  <section class="section">
+    <div class="nosotros-grid">
+      <div class="nosotros-img-wrap reveal">
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-25.jpg" alt="Patio Instituto América">
+        <div class="accent-box">
+          <div class="accent-num">50</div>
+          <div class="accent-lbl">Años<br>educando</div>
         </div>
-        <div class="pilar">
-          <div class="pilar-title">Excelencia</div>
-          <div class="pilar-desc">Estándares académicos de calidad en todos los niveles</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="section-tag">Nuestra institución</div>
+        <h2 class="section-title section-title-dark" style="margin-bottom:1.2rem">Una comunidad educativa con identidad y propósito</h2>
+        <p class="nosotros-text" style="font-size:1rem;line-height:1.8;color:#4A3038;font-weight:300">Somos un colegio cristiano evangélico dedicado a la formación integral de nuestros estudiantes. Nuestro objetivo es educar para la vida, desarrollando el potencial de cada alumno en un ambiente de amor, respeto y compromiso con Dios.</p>
+        <p class="nosotros-text" style="font-size:1rem;line-height:1.8;color:#4A3038;font-weight:300">Desde 1974 construimos una comunidad donde docentes, familias y alumnos caminan juntos hacia un horizonte de crecimiento personal y colectivo.</p>
+        <div class="pilares">
+          <div class="pilar"><div class="pilar-t">Misión</div><div class="pilar-d">Educar para la vida con excelencia y valores cristianos</div></div>
+          <div class="pilar"><div class="pilar-t">Visión</div><div class="pilar-d">Ser referentes en educación cristiana en Córdoba</div></div>
+          <div class="pilar"><div class="pilar-t">Fe y Valores</div><div class="pilar-d">Formación humana integral desde la perspectiva cristiana</div></div>
+          <div class="pilar"><div class="pilar-t">Comunidad</div><div class="pilar-d">Vínculo profundo entre familias, docentes y alumnos</div></div>
         </div>
-        <div class="pilar">
-          <div class="pilar-title">Comunidad</div>
-          <div class="pilar-desc">Vínculo profundo entre familias, docentes y alumnos</div>
-        </div>
-        <div class="pilar">
-          <div class="pilar-title">Innovación</div>
-          <div class="pilar-desc">Herramientas y metodologías para el mundo actual</div>
+        <div style="margin-top:1.8rem">
+          <button class="btn-primary" onclick="showPage('nosotros')" style="background:var(--bordo)">Conocé nuestra historia →</button>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ─── NIVELES ────────────────────────── -->
-<section class="niveles section" id="niveles">
-  <div class="section-header">
-    <div class="section-tag" style="color:var(--naranja);">Oferta educativa</div>
-    <h2 class="section-title">Tres niveles,<br>un mismo camino</h2>
-  </div>
-  <div class="niveles-grid">
-    <div class="nivel-card reveal">
-      <div class="nivel-bg nivel-bg-1">
-  <img src="img/inicial.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Nivel Inicial">
+  <!-- NIVELES -->
+  <section class="section section-dark" id="niveles">
+    <div class="section-tag" style="color:var(--naranja)">Oferta educativa</div>
+    <h2 class="section-title section-title-light" style="margin-bottom:.4rem">Tres niveles,<br>un mismo camino</h2>
+    <div class="niveles-grid">
+      <div class="nivel-card reveal">
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-28.jpg" alt="Nivel Inicial">
+        <div class="nivel-overlay">
+          <span class="nivel-num">01</span>
+          <span class="nivel-name">Nivel Inicial</span>
+          <p class="nivel-desc">El jardín es un lugar donde se convive con otros, se construyen aprendizajes múltiples y diversos, se aprenden contenidos y se desarrollan capacidades en un ambiente de amor.</p>
+          <span class="nivel-link" onclick="showPage('academica');setTab('inicial')">Más información →</span>
+        </div>
       </div>
-      <div class="nivel-overlay">
-        <span class="nivel-num">01</span>
-        <span class="nivel-name">Nivel Inicial</span>
-        <p class="nivel-desc">Un primer gran paso donde el juego, la curiosidad y el afecto son los pilares del aprendizaje.</p>
-        <a href="#contacto" class="nivel-link">Más información →</a>
+      <div class="nivel-card reveal reveal-delay-1">
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-82-1024x678.jpg" alt="Nivel Primario">
+        <div class="nivel-overlay">
+          <span class="nivel-num">02</span>
+          <span class="nivel-name">Nivel Primario</span>
+          <p class="nivel-desc">Seis años de formación integral donde construimos las bases del pensamiento crítico, el carácter y los valores que acompañarán a cada alumno toda la vida.</p>
+          <span class="nivel-link" onclick="showPage('academica');setTab('primario')">Más información →</span>
+        </div>
       </div>
-    </div>
-    <div class="nivel-card reveal reveal-delay-1">
-      <div class="nivel-bg nivel-bg-2">
-  <img src="img/primario.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Nivel Primario">
-      </div>
-      <div class="nivel-overlay">
-        <span class="nivel-num">02</span>
-        <span class="nivel-name">Nivel Primario</span>
-        <p class="nivel-desc">Seis años de formación integral donde construimos las bases del pensamiento y el carácter.</p>
-        <a href="#contacto" class="nivel-link">Más información →</a>
-      </div>
-    </div>
-    <div class="nivel-card reveal reveal-delay-2">
-      <div class="nivel-bg nivel-bg-3">
-  <img src="img/secundario.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;" alt="Nivel Secundario">
-      </div>
-      <div class="nivel-overlay">
-        <span class="nivel-num">03</span>
-        <span class="nivel-name">Nivel Secundario</span>
-        <p class="nivel-desc">Bachillerato orientado con talleres, proyectos y acompañamiento para la elección universitaria.</p>
-        <a href="#contacto" class="nivel-link">Más información →</a>
+      <div class="nivel-card reveal reveal-delay-2">
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/06/056-scaled.jpg" alt="Nivel Secundario">
+        <div class="nivel-overlay">
+          <span class="nivel-num">03</span>
+          <span class="nivel-name">Nivel Secundario</span>
+          <p class="nivel-desc">El nivel medio del Instituto América nació en 1996 por iniciativa de la comunidad cristiana evangélica. Bachillerato orientado con acompañamiento vocacional.</p>
+          <span class="nivel-link" onclick="showPage('academica');setTab('secundario')">Más información →</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ─── VALORES ─────────────────────────── -->
-<div class="values-strip">
-  <div class="value-item reveal">
-    <div class="value-icon">✦</div>
-    <div class="value-name">Solidaridad</div>
-    <div class="value-desc">Formamos personas capaces de ponerse en el lugar del otro y construir en equipo.</div>
+  <!-- VALUES STRIP -->
+  <div class="values-strip">
+    <div class="value-item reveal"><div class="value-icon">✦</div><div class="value-name">Solidaridad</div><div class="value-desc">Formamos personas capaces de ponerse en el lugar del otro y construir en equipo.</div></div>
+    <div class="value-item reveal reveal-delay-1"><div class="value-icon">◈</div><div class="value-name">Responsabilidad</div><div class="value-desc">Enseñamos que cada acción tiene consecuencias y que el compromiso transforma.</div></div>
+    <div class="value-item reveal reveal-delay-2"><div class="value-icon">❋</div><div class="value-name">Respeto</div><div class="value-desc">La diversidad es nuestra riqueza; el respeto mutuo, nuestra base de convivencia.</div></div>
+    <div class="value-item reveal reveal-delay-3"><div class="value-icon">◉</div><div class="value-name">Fe</div><div class="value-desc">La fe en Dios guía nuestro camino y da sentido profundo a todo lo que hacemos.</div></div>
   </div>
-  <div class="value-item reveal reveal-delay-1">
-    <div class="value-icon">◈</div>
-    <div class="value-name">Responsabilidad</div>
-    <div class="value-desc">Enseñamos que cada acción tiene consecuencias y que el compromiso transforma.</div>
+
+  <!-- NOVEDADES preview -->
+  <section class="section">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
+      <div>
+        <div class="section-tag">Comunidad</div>
+        <h2 class="section-title section-title-dark">Novedades del Instituto</h2>
+      </div>
+      <button class="btn-primary" onclick="showPage('novedades')" style="background:var(--bordo);flex-shrink:0">Ver todas →</button>
+    </div>
+    <div class="novedades-grid">
+      <div class="novedad-card reveal" onclick="showPage('novedades')">
+        <div class="novedad-img">
+          <img src="https://trompo.ar/america/wp-content/uploads/2024/10/205-scaled.jpg" alt="Directora Nivel Inicial">
+          <span class="novedad-tag">Institución</span>
+        </div>
+        <div class="novedad-body">
+          <div class="novedad-fecha">26 mayo, 2025</div>
+          <div class="novedad-title">Presentación de la Directora del Nivel Inicial y Primario</div>
+          <p class="novedad-excerpt">La profesora Débora Zapata es una docente por vocación, graduada en el año 1993. Se incorporó a nuestra institución en 2006, proveniente de una escuela hermanada por la misma fe.</p>
+        </div>
+      </div>
+      <div class="novedad-card reveal reveal-delay-1" onclick="showPage('novedades')">
+        <div class="novedad-img">
+          <img src="https://trompo.ar/america/wp-content/uploads/2024/10/206-scaled.jpg" alt="Vicedirectora">
+          <span class="novedad-tag">Institución</span>
+        </div>
+        <div class="novedad-body">
+          <div class="novedad-fecha">22 octubre, 2024</div>
+          <div class="novedad-title">Presentación de la Vicedirectora del Nivel Inicial y Primario</div>
+          <p class="novedad-excerpt">La profesora Silvia Débora Rico, educadora con sólida trayectoria académica y profesional, se ha destacado por su dedicación y compromiso en el ámbito educativo y social.</p>
+        </div>
+      </div>
+      <div class="novedad-card reveal reveal-delay-2" onclick="showPage('contacto')">
+        <div class="novedad-img" style="background:linear-gradient(135deg,var(--bordo),var(--bordo2));display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;color:rgba(255,255,255,.7);padding:1.5rem">
+            <div style="font-size:2.5rem;margin-bottom:.5rem">📅</div>
+            <div style="font-size:13px;font-weight:500">Inscripciones 2026</div>
+          </div>
+          <span class="novedad-tag" style="background:var(--naranja)">Admisiones</span>
+        </div>
+        <div class="novedad-body">
+          <div class="novedad-fecha">Ciclo lectivo 2026</div>
+          <div class="novedad-title">Inscripciones 2026 abiertas — ¡Asegurá tu lugar!</div>
+          <p class="novedad-excerpt">Los cupos son limitados. Te recomendamos iniciar el proceso con anticipación. Contactanos para conocer los requisitos y disponibilidad por nivel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISIONES preview -->
+  <section class="section section-darker" id="admisiones">
+    <div class="admisiones-grid">
+      <div class="reveal">
+        <div class="section-tag">Inscripciones 2026</div>
+        <h2 class="section-title section-title-light" style="margin-bottom:1.5rem">Sumate a nuestra comunidad</h2>
+        <div class="proceso-steps">
+          <div class="step" style="border-color:rgba(255,255,255,.1)"><div class="step-num">01</div><div><h4 style="color:#fff">Completá el formulario</h4><p style="color:rgba(255,255,255,.5)">Dejanos tus datos y un asesor se comunicará en menos de 48hs hábiles.</p></div></div>
+          <div class="step" style="border-color:rgba(255,255,255,.1)"><div class="step-num">02</div><div><h4 style="color:#fff">Visita a la institución</h4><p style="color:rgba(255,255,255,.5)">Coordinamos un recorrido guiado para que conozcas el ambiente escolar.</p></div></div>
+          <div class="step" style="border-color:rgba(255,255,255,.1)"><div class="step-num">03</div><div><h4 style="color:#fff">Entrevista familiar</h4><p style="color:rgba(255,255,255,.5)">Una charla con la conducción para conocerse y resolver todas las dudas.</p></div></div>
+          <div class="step" style="border-color:rgba(255,255,255,.08)"><div class="step-num">04</div><div><h4 style="color:#fff">Inscripción y matrícula</h4><p style="color:rgba(255,255,255,.5)">Completada la documentación, se reserva el lugar para el ciclo lectivo.</p></div></div>
+        </div>
+      </div>
+      <div class="admisiones-box reveal reveal-delay-1">
+        <h3>Inscripciones 2026 abiertas</h3>
+        <p>Los cupos son limitados. Te recomendamos iniciar el proceso con anticipación para asegurar el lugar de tu hijo/a.</p>
+        <div class="detail-row"><span>📅</span><span>Período: <strong style="color:#fff">Agosto — Noviembre 2025</strong></span></div>
+        <div class="detail-row"><span>📋</span><span>Documentación: DNI del alumno, certificado de vacunación, último boletín y partida de nacimiento</span></div>
+        <div class="detail-row"><span>🎓</span><span>Niveles: Inicial, Primario y Secundario</span></div>
+        <div class="detail-row"><span>💳</span><span>Plan de becas y cuotas disponible — consultanos</span></div>
+        <div style="margin-top:1.8rem">
+          <button class="btn-primary" onclick="showPage('contacto')">Iniciar mi consulta →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLEXION -->
+  <section class="section section-darker" style="background:var(--bordo2)">
+    <div class="reflexion-wrap">
+      <div class="section-tag" style="color:var(--naranja);justify-content:center;margin-bottom:1.5rem">Reflexión del día</div>
+      <div class="reflexion-content reveal">
+        <div class="reflexion-titulo">Sabiduría para Estudiantes</div>
+        <div class="reflexion-texto">
+          <em>«El principio de la sabiduría es el temor de Jehová»</em> (Proverbios 9:10).<br><br>
+          Como estudiantes, a menudo buscamos conocimiento en libros y maestros, pero la verdadera sabiduría comienza al reconocer a Dios como fuente de todo entendimiento. No se trata solo de acumular información, sino de aplicar Su verdad con humildad y discernimiento.
+          <br><br>
+          Jesús, el Maestro por excelencia, nos enseña que la sabiduría no está en la soberbia intelectual, sino en un corazón dispuesto a aprender. Cuando estudies, pídele a Dios dirección, y verás cómo Él ilumina tu mente y fortalece tu carácter.
+        </div>
+        <div class="reflexion-oracion">
+          <p>«Señor, guía mis estudios. Que todo lo que aprenda me acerque más a Ti y a Tu propósito. Amén.»</p>
+        </div>
+        <div class="reflexion-versiculo">📖 «Si alguno de vosotros tiene falta de sabiduría, pídala a Dios…» (Santiago 1:5)</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════════════════════════════
+     NOSOTROS PAGE
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-nosotros">
+  <div class="page-header">
+    <div class="page-header-tag">Nuestra institución</div>
+    <h1>¿Quiénes somos?</h1>
+    <p>Conocé nuestra historia, valores y la comunidad que construimos juntos desde 1974.</p>
   </div>
-  <div class="value-item reveal reveal-delay-2">
-    <div class="value-icon">❋</div>
-    <div class="value-name">Respeto</div>
-    <div class="value-desc">La diversidad es nuestra riqueza; el respeto, nuestra base de convivencia.</div>
+
+  <section class="section">
+    <div class="mision-grid">
+      <div class="mision-card reveal">
+        <h3>Misión</h3>
+        <p>Somos un colegio cristiano evangélico dedicado a la formación integral de nuestros estudiantes, combinando excelencia académica con principios y valores basados en la fe cristiana. Nuestro objetivo es educar para la vida, desarrollando el potencial de cada alumno.</p>
+      </div>
+      <div class="mision-card reveal reveal-delay-1">
+        <h3>Visión</h3>
+        <p>Ser una institución educativa de referencia en Córdoba, reconocida por su compromiso con la formación integral del ser humano, la excelencia académica y la vivencia de valores cristianos que transformen positivamente la sociedad.</p>
+      </div>
+      <div class="mision-card reveal reveal-delay-2">
+        <h3>Valores</h3>
+        <p>Fe en Dios, amor al prójimo, honestidad, responsabilidad, respeto mutuo y excelencia en todo lo que emprendemos. Estos valores no son solo palabras, sino el fundamento que guía cada decisión y acción en nuestra comunidad educativa.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="versiculo">
+    <blockquote>
+      «Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él.»
+      <cite>Proverbios 22:6</cite>
+    </blockquote>
   </div>
-  <div class="value-item reveal reveal-delay-3">
-    <div class="value-icon">◉</div>
-    <div class="value-name">Creatividad</div>
-    <div class="value-desc">Incentivamos el pensamiento original y la búsqueda de soluciones innovadoras.</div>
+
+  <section class="section">
+    <div class="section-tag">Nuestra historia</div>
+    <h2 class="section-title section-title-dark" style="margin-bottom:2rem">Más de 50 años formando generaciones</h2>
+    <div class="historia-grid">
+      <div class="historia-text reveal">
+        <p>Instituto América nació en 1974 por iniciativa de un grupo de personas pertenecientes a la comunidad cristiana evangélica de Córdoba, con la convicción de que la educación basada en valores bíblicos transforma vidas y comunidades.</p>
+        <p>A lo largo de más de cinco décadas, hemos formado miles de egresados que hoy son profesionales, padres y ciudadanos comprometidos con los valores que recibieron en estas aulas. Cada generación que pasa por el Instituto lleva consigo la huella de una educación que va más allá del conocimiento académico.</p>
+        <p>En 1996, la institución incorporó el Nivel Secundario, ampliando su propuesta educativa y permitiendo que los alumnos completaran su trayecto escolar completo dentro de una misma comunidad de fe y valores.</p>
+        <p>Hoy, con más de 1.200 alumnos distribuidos en tres niveles, el Instituto América es una institución consolidada que sigue fiel a su misión fundacional: educar para la vida desde la fe cristiana.</p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-25.jpg" alt="Historia Instituto América">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--crema);padding-top:0">
+    <div class="section-tag">Galería</div>
+    <h2 class="section-title section-title-dark" style="margin-bottom:1.5rem">Nuestra comunidad en imágenes</h2>
+    <div class="galeria-grid">
+      <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-25.jpg" alt="Instituto América">
+      <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-28.jpg" alt="Instituto América">
+      <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-82-1024x678.jpg" alt="Instituto América">
+      <img src="https://trompo.ar/america/wp-content/uploads/2025/05/Instituto-America-17.webp" alt="Instituto América">
+      <img src="https://trompo.ar/america/wp-content/uploads/2025/06/056-scaled.jpg" alt="Instituto América">
+      <img src="https://trompo.ar/america/wp-content/uploads/2024/10/205-scaled.jpg" alt="Instituto América">
+      <img src="https://trompo.ar/america/wp-content/uploads/2024/10/206-scaled.jpg" alt="Instituto América">
+      <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-25.jpg" alt="Instituto América">
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     VIDA ACADÉMICA PAGE
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-academica">
+  <div class="page-header">
+    <div class="page-header-tag">Propuesta educativa</div>
+    <h1>Vida Académica</h1>
+    <p>Conocé nuestra propuesta pedagógica en cada nivel: Inicial, Primario y Secundario.</p>
+  </div>
+
+  <section class="section">
+    <div class="academica-tabs">
+      <button class="tab-btn active" onclick="setTab('inicial')">Nivel Inicial</button>
+      <button class="tab-btn" onclick="setTab('primario')">Nivel Primario</button>
+      <button class="tab-btn" onclick="setTab('secundario')">Nivel Secundario</button>
+    </div>
+
+    <!-- INICIAL -->
+    <div class="tab-panel active" id="tab-inicial">
+      <div class="academica-content">
+        <div class="reveal">
+          <h2>Nivel Inicial</h2>
+          <p>El jardín de infantes es un lugar privilegiado donde se convive con otros, se construyen aprendizajes múltiples y diversos, se aprenden contenidos y se desarrollan capacidades en un ambiente de amor, respeto y cuidado.</p>
+          <p>En el Nivel Inicial del Instituto América, los niños dan sus primeros pasos en la vida escolar acompañados por docentes comprometidas con su formación integral, donde la fe cristiana es parte natural del día a día.</p>
+          <div class="blur-section" style="max-height:160px;overflow:hidden;position:relative">
+            <div style="padding:.5rem 0">
+              <strong style="font-size:13px;color:var(--bordo);display:block;margin-bottom:.5rem">Currículum — próximamente</strong>
+              <div class="curricula-placeholder">
+                📚 La información curricular detallada del Nivel Inicial estará disponible próximamente.<br>
+                Contactanos para más información sobre nuestra propuesta pedagógica.
+              </div>
+            </div>
+            <div class="blur-overlay" style="height:80px"><span>Información en actualización</span></div>
+          </div>
+          <div style="margin-top:1.2rem">
+            <button class="btn-primary" onclick="showPage('contacto')" style="background:var(--bordo)">Consultar por Nivel Inicial →</button>
+          </div>
+        </div>
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-28.jpg" alt="Nivel Inicial" class="reveal reveal-delay-1">
+      </div>
+    </div>
+
+    <!-- PRIMARIO -->
+    <div class="tab-panel" id="tab-primario">
+      <div class="academica-content">
+        <div class="reveal">
+          <h2>Nivel Primario</h2>
+          <p>El Nivel Primario del Instituto América ofrece seis años de formación integral donde construimos las bases del pensamiento crítico, la creatividad y los valores que acompañarán a cada alumno a lo largo de toda su vida.</p>
+          <p>Nuestra propuesta pedagógica integra el conocimiento académico con la formación en valores cristianos, en un ambiente donde cada niño es conocido, valorado y acompañado de manera personalizada por sus docentes.</p>
+          <div class="blur-section" style="max-height:160px;overflow:hidden;position:relative">
+            <div style="padding:.5rem 0">
+              <strong style="font-size:13px;color:var(--bordo);display:block;margin-bottom:.5rem">Currículum — próximamente</strong>
+              <div class="curricula-placeholder">
+                📚 La información curricular detallada del Nivel Primario estará disponible próximamente.<br>
+                Contactanos para más información sobre materias, actividades y jornadas.
+              </div>
+            </div>
+            <div class="blur-overlay" style="height:80px"><span>Información en actualización</span></div>
+          </div>
+          <div style="margin-top:1.2rem">
+            <button class="btn-primary" onclick="showPage('contacto')" style="background:var(--bordo)">Consultar por Nivel Primario →</button>
+          </div>
+        </div>
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/03/Instituto-America-82-1024x678.jpg" alt="Nivel Primario" class="reveal reveal-delay-1">
+      </div>
+    </div>
+
+    <!-- SECUNDARIO -->
+    <div class="tab-panel" id="tab-secundario">
+      <div class="academica-content">
+        <div class="reveal">
+          <h2>Nivel Secundario</h2>
+          <p>El Nivel Secundario del Instituto América nació en marzo de 1996, por iniciativa de un grupo de personas pertenecientes a la comunidad cristiana evangélica, ampliando así la propuesta educativa de la institución.</p>
+          <p>Ofrecemos un Bachillerato orientado que prepara a los jóvenes para la vida universitaria y profesional, con fuerte énfasis en el pensamiento crítico, la responsabilidad y el servicio a la comunidad.</p>
+          <div class="blur-section" style="max-height:160px;overflow:hidden;position:relative">
+            <div style="padding:.5rem 0">
+              <strong style="font-size:13px;color:var(--bordo);display:block;margin-bottom:.5rem">Currículum y orientaciones — próximamente</strong>
+              <div class="curricula-placeholder">
+                📚 La información sobre materias, orientaciones y actividades del Nivel Secundario estará disponible próximamente.<br>
+                Contactanos para más información sobre nuestra propuesta para jóvenes.
+              </div>
+            </div>
+            <div class="blur-overlay" style="height:80px"><span>Información en actualización</span></div>
+          </div>
+          <div style="margin-top:1.2rem">
+            <button class="btn-primary" onclick="showPage('contacto')" style="background:var(--bordo)">Consultar por Nivel Secundario →</button>
+          </div>
+        </div>
+        <img src="https://trompo.ar/america/wp-content/uploads/2025/06/056-scaled.jpg" alt="Nivel Secundario" class="reveal reveal-delay-1">
+      </div>
+    </div>
+  </section>
+
+  <div class="versiculo">
+    <blockquote>«El principio de la sabiduría es el temor de Jehová» (Proverbios 9:10)</blockquote>
   </div>
 </div>
 
-<!-- ─── VIDA ESCOLAR / PROYECTOS ────────── -->
-<section class="proyectos" id="proyectos">
-  <div class="proyectos-header">
-    <div>
-      <div class="section-tag">Vida escolar</div>
-      <h2 class="section-title">Proyectos, actos<br>y comunidad</h2>
-    </div>
-    <a href="#contacto" class="btn-primary" style="background:var(--bordo);flex-shrink:0;">Ver todo el archivo →</a>
+
+<!-- ════════════════════════════════════════════════════════
+     DOCENTES PAGE
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-docentes">
+  <div class="page-header">
+    <div class="page-header-tag">Nuestro equipo</div>
+    <h1>Docentes y Conducción</h1>
+    <p>Conocé al equipo de profesionales comprometidos con la formación de nuestros alumnos.</p>
   </div>
-  <div class="proyectos-scroll">
-    <div class="proyecto-card reveal">
-      <div class="proyecto-img proyecto-img-1">
-<span class="proyecto-tag">Comunidad</span><img src="img/proyectos1.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Feria de proyectos">
+
+  <section class="section">
+    <div class="section-tag">Conducción institucional</div>
+    <h2 class="section-title section-title-dark" style="margin-bottom:2rem">Liderazgo educativo</h2>
+    <div class="docentes-grid">
+      <div class="docente-card reveal">
+        <img src="https://trompo.ar/america/wp-content/uploads/2024/10/205-scaled.jpg" alt="Prof. Débora Zapata" class="docente-img">
+        <div class="docente-info">
+          <h3>Prof. Débora Zapata</h3>
+          <div class="cargo">Directora Nivel Inicial y Primario</div>
+          <p>Docente por vocación, graduada en 1993. Se incorporó al Instituto América en 2006, proveniente de una escuela hermanada por la misma fe. Su compromiso con la educación cristiana es el pilar de su gestión.</p>
+        </div>
       </div>
-      <div class="proyecto-body">
-        <div class="proyecto-fecha">Febrero 2025</div>
-        <div class="proyecto-title">Feria de Proyectos Sustentables: alumnos proponen soluciones para Córdoba</div>
-        <p class="proyecto-excerpt">Más de 40 grupos del nivel secundario presentaron iniciativas ambientales ante un jurado externo. Los proyectos abarcan desde huertos urbanos hasta reciclado de residuos electrónicos.</p>
-      </div>
-      <div class="proyecto-footer">
-        <span class="proyecto-autor">Dept. de Ciencias Naturales</span>
-        <div class="proyecto-arrow">→</div>
+      <div class="docente-card reveal reveal-delay-1">
+        <img src="https://trompo.ar/america/wp-content/uploads/2024/10/206-scaled.jpg" alt="Prof. Silvia Rico" class="docente-img">
+        <div class="docente-info">
+          <h3>Prof. Silvia Débora Rico</h3>
+          <div class="cargo">Vicedirectora Nivel Inicial y Primario</div>
+          <p>Educadora con sólida trayectoria académica y profesional, se ha destacado por su dedicación y compromiso en el ámbito educativo y social. Un referente de calidez y excelencia para nuestra comunidad.</p>
+        </div>
       </div>
     </div>
 
-    <div class="proyecto-card reveal reveal-delay-1">
-      <div class="proyecto-img proyecto-img-2">
-<span class="proyecto-tag naranja">Acto escolar</span><img src="img/proyectos2.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Acto escolar">
-      </div>
-      <div class="proyecto-body">
-        <div class="proyecto-fecha">Junio 2025</div>
-        <div class="proyecto-title">Muestra artística integrada: danza, teatro y música en un solo escenario</div>
-        <p class="proyecto-excerpt">El Día del Padre reunió a familias en el salón de actos para una celebración donde los alumnos de primaria y secundaria compartieron el escenario por primera vez.</p>
-      </div>
-      <div class="proyecto-footer">
-        <span class="proyecto-autor">Área de Arte</span>
-        <div class="proyecto-arrow">→</div>
+    <div style="margin-top:3rem">
+      <div class="section-tag">Equipo docente</div>
+      <h2 class="section-title section-title-dark" style="margin-bottom:1.5rem">Docentes por nivel</h2>
+      <div class="curricula-placeholder" style="max-width:600px;margin:0 auto">
+        👨‍🏫 La presentación completa del equipo docente por nivel estará disponible próximamente.<br>
+        Nuestros docentes son profesionales comprometidos con la educación cristiana y la formación integral de cada alumno.
       </div>
     </div>
+  </section>
+</div>
 
-    <div class="proyecto-card reveal reveal-delay-2">
-      <div class="proyecto-img proyecto-img-3">
-<span class="proyecto-tag">Solidaridad</span><img src="img/proyectos3.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Solidaridad">
-      </div>
-      <div class="proyecto-body">
-        <div class="proyecto-fecha">Agosto 2025</div>
-        <div class="proyecto-title">Campaña solidaria 2025: más de 300 familias beneficiadas en barrios de Córdoba</div>
-        <p class="proyecto-excerpt">Durante todo el mes de agosto, los alumnos de 5to y 6to año organizaron colectas y actividades para colaborar con merenderos y comedores de la ciudad.</p>
-      </div>
-      <div class="proyecto-footer">
-        <span class="proyecto-autor">Centro de Estudiantes</span>
-        <div class="proyecto-arrow">→</div>
-      </div>
-    </div>
+
+<!-- ════════════════════════════════════════════════════════
+     NOVEDADES PAGE
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-novedades">
+  <div class="page-header">
+    <div class="page-header-tag">Comunidad</div>
+    <h1>Novedades del Instituto</h1>
+    <p>Mantenete informado sobre todo lo que pasa en nuestra comunidad educativa.</p>
   </div>
-  <p style="font-size:13px;color:#9A8090;margin-top:2.5rem;text-align:center;font-style:italic;">
-    Esta sección se actualiza mensualmente con noticias, proyectos y actos de la comunidad Instituto América.
-  </p>
-</section>
 
-<!-- ─── ADMISIONES ─────────────────────── -->
-<section class="admisiones" id="admisiones">
-  <div class="section-header reveal">
-    <div class="section-tag">Inscripciones 2026</div>
-    <h2 class="section-title">Sumate a nuestra<br>comunidad</h2>
+  <section class="section">
+    <div class="novedades-grid">
+      <div class="novedad-card reveal">
+        <div class="novedad-img">
+          <img src="https://trompo.ar/america/wp-content/uploads/2024/10/205-scaled.jpg" alt="Directora">
+          <span class="novedad-tag">Institución</span>
+        </div>
+        <div class="novedad-body">
+          <div class="novedad-fecha">26 mayo, 2025</div>
+          <div class="novedad-title">Presentación de la Directora del Nivel Inicial y Primario</div>
+          <p class="novedad-excerpt">La profesora Débora Zapata es una docente por vocación, graduada en el año 1993. Se incorporó a nuestra institución en el año 2006, proveniente de una escuela hermanada por la misma fe. Su trayectoria y compromiso con la educación cristiana la convierten en un pilar fundamental de nuestra comunidad.</p>
+        </div>
+      </div>
+      <div class="novedad-card reveal reveal-delay-1">
+        <div class="novedad-img">
+          <img src="https://trompo.ar/america/wp-content/uploads/2024/10/206-scaled.jpg" alt="Vicedirectora">
+          <span class="novedad-tag">Institución</span>
+        </div>
+        <div class="novedad-body">
+          <div class="novedad-fecha">22 octubre, 2024</div>
+          <div class="novedad-title">Presentación de la Vicedirectora del Nivel Inicial y Primario</div>
+          <p class="novedad-excerpt">La profesora Silvia Débora Rico, una educadora con una sólida trayectoria académica y profesional, se ha destacado por su dedicación y compromiso en el ámbito educativo y social de nuestra comunidad.</p>
+        </div>
+      </div>
+      <div class="novedad-card reveal reveal-delay-2" onclick="showPage('contacto')" style="cursor:pointer">
+        <div class="novedad-img" style="background:linear-gradient(135deg,var(--bordo),var(--bordo2));display:flex;align-items:center;justify-content:center;aspect-ratio:16/10">
+          <div style="text-align:center;color:rgba(255,255,255,.7);padding:2rem">
+            <div style="font-size:3rem;margin-bottom:.8rem">📅</div>
+            <div style="font-size:15px;font-weight:600;color:#fff">Inscripciones 2026</div>
+          </div>
+          <span class="novedad-tag" style="background:var(--naranja)">Admisiones</span>
+        </div>
+        <div class="novedad-body">
+          <div class="novedad-fecha">Ciclo lectivo 2026</div>
+          <div class="novedad-title">¡Inscripciones 2026 abiertas! Asegurá el lugar de tu hijo/a</div>
+          <p class="novedad-excerpt">Los cupos son limitados en todos los niveles. Te recomendamos iniciar el proceso de inscripción con anticipación. Completá el formulario de contacto y nos comunicamos a la brevedad.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;padding:3rem;background:rgba(107,18,32,.04);border-radius:6px;border:2px dashed rgba(107,18,32,.12)">
+      <p style="color:var(--gris);font-size:13px;font-style:italic;line-height:1.7">📰 Esta sección se actualiza periódicamente con noticias, actos, proyectos y actividades de la comunidad Instituto América.<br>Seguinos en nuestras redes sociales para estar al tanto de todas las novedades.</p>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CONTACTO PAGE
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-contacto">
+  <div class="page-header">
+    <div class="page-header-tag">Hablemos</div>
+    <h1>Estamos para acompañarte</h1>
+    <p>Contactanos para resolver tus dudas sobre inscripciones, aranceles o cualquier consulta institucional.</p>
   </div>
-  <div class="admisiones-grid">
-    <div class="proceso-steps reveal">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--bordo-dark);margin-bottom:1.5rem;">Proceso de admisión</h3>
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
-          <h4>Completá el formulario de contacto</h4>
-          <p>Dejanos tus datos y un asesor se comunicará con vos en menos de 48hs hábiles.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
-          <h4>Visita a la institución</h4>
-          <p>Coordinamos un recorrido guiado por las instalaciones para que conozcas el ambiente.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <h4>Entrevista familiar</h4>
-          <p>Una charla con la conducción para conocerse mutuamente y resolver todas las dudas.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-content">
-          <h4>Inscripción y matrícula</h4>
-          <p>Completada la documentación, se reserva el lugar del alumno para el ciclo lectivo.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="admisiones-cta reveal reveal-delay-1">
-      <h3>Inscripciones 2026 abiertas</h3>
-      <p>Los cupos son limitados. Te recomendamos iniciar el proceso con anticipación para asegurar el lugar de tu hijo/a.</p>
-      <div class="admisiones-detail">
-        <div class="detail-row">
-          <span>📅</span>
-          <span>Período de inscripción: <strong>Agosto — Noviembre 2025</strong></span>
+  <section class="section section-darker">
+    <div class="contacto-grid">
+      <div class="reveal">
+        <div class="section-tag" style="color:var(--naranja)">Información de contacto</div>
+        <h2 class="section-title section-title-light" style="margin-bottom:1.5rem">Encontranos</h2>
+        <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><strong>Dirección</strong><span>Francisco del Prado 2662, Córdoba, Argentina</span></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><strong>Teléfono / WhatsApp</strong><span>+54 9 351 123-4567</span></div></div>
+        <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><strong>Email</strong><span>info@institutoamerica.com.ar</span></div></div>
+        <div class="contact-item"><div class="contact-icon">🕐</div><div class="contact-text"><strong>Horario de atención</strong><span>Lunes a Viernes: 08:00 a 18:00 hs</span></div></div>
+
+        <div style="margin-top:2rem;padding:1.2rem 1.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px">
+          <p style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:.5rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Inscripciones</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6">Para consultas de inscripción podés escribirnos a:<br>
+          <a href="mailto:matriculainicialprimario@gmail.com" style="color:var(--naranja)">matriculainicialprimario@gmail.com</a> (Inicial y Primario)<br>
+          <a href="mailto:matriculasecundario@gmail.com" style="color:var(--naranja)">matriculasecundario@gmail.com</a> (Secundario)</p>
         </div>
-        <div class="detail-row">
-          <span>📋</span>
-          <span>Documentación: DNI del alumno, certificado de vacunación, último boletín escolar y partida de nacimiento</span>
-        </div>
-        <div class="detail-row">
-          <span>🎓</span>
-          <span>Niveles disponibles: Inicial, Primario y Secundario</span>
-        </div>
-        <div class="detail-row">
-          <span>💳</span>
-          <span>Plan de becas y cuotas disponible — consultanos</span>
+
+        <div style="margin-top:1.5rem">
+          <a href="https://deioweb.com.ar/SAG/" target="_blank" class="btn-primary" style="display:inline-flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2)">Acceder a Autogestión ↗</a>
         </div>
       </div>
-      <a href="#contacto" class="btn-primary" style="display:inline-flex;">Iniciar mi consulta →</a>
-    </div>
-  </div>
-</section>
 
-<!-- ─── CONTACTO ──────────────────────── -->
-<section class="contacto" id="contacto">
-  <div class="contacto-grid">
-    <div class="contacto-info reveal">
-      <div class="section-tag" style="color:var(--naranja);">Hablemos</div>
-      <h2>Estamos para<br><em>acompañarte</em></h2>
-      <p>Nuestro equipo está disponible para resolver todas tus consultas sobre inscripciones, aranceles, niveles educativos o cualquier otra duda que tengas.</p>
-      <div class="contacto-items">
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div class="contact-text">
-            <strong>Dirección</strong>
-            Av. Poeta Lugones 7825, X5010 — Córdoba Capital
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <div class="contact-text">
-            <strong>Teléfono</strong>
-            (0351) 461-XXXX — Lun a Vie de 8 a 18hs
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">✉️</div>
-          <div class="contact-text">
-            <strong>Email</strong>
-            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed84838b82ad84839e998c80889f848e8cc38e8280c38c9f">[email&#160;protected]</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-text">
-            <strong>WhatsApp</strong>
-            Escribinos directo al (351) 5XX-XXXX
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="contacto-form reveal reveal-delay-1">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--blanco);margin-bottom:1.5rem;">Envianos un mensaje</h3>
-      <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div class="contacto-form reveal reveal-delay-1">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:1.4rem">Envianos un mensaje</h3>
         <div class="form-row">
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre">
-          </div>
-          <div class="form-group">
-            <label>Apellido</label>
-            <input type="text" placeholder="Tu apellido">
-          </div>
+          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+          <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido"></div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="tu@email.com">
-        </div>
-        <div class="form-group">
-          <label>Teléfono</label>
-          <input type="tel" placeholder="(351) 000-0000">
-        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="(351) 000-0000"></div>
         <div class="form-group">
           <label>Motivo de consulta</label>
           <select>
@@ -1550,92 +856,126 @@
             <option>Inscripción Nivel Secundario</option>
             <option>Información de aranceles</option>
             <option>Becas y financiamiento</option>
+            <option>Información académica</option>
             <option>Otro</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Mensaje</label>
-          <textarea placeholder="Contanos brevemente tu consulta..."></textarea>
-        </div>
+        <div class="form-group"><label>Mensaje</label><textarea placeholder="Contanos brevemente tu consulta..."></textarea></div>
         <div class="form-submit">
-          <button class="btn-primary" onclick="alert('¡Gracias! Nos comunicaremos pronto.')">
-            Enviar mensaje →
-          </button>
+          <button class="btn-primary" onclick="alert('¡Gracias! Nos comunicaremos a la brevedad.')">Enviar mensaje →</button>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<!-- ─── FOOTER ────────────────────────── -->
+
+<!-- ─── FOOTER ──────────────────────────────────────────── -->
 <footer>
-  <a href="#" class="footer-logo">
-    <div class="nav-logo-mark" style="width:32px;height:32px;font-size:14px;">IA</div>
-    <div class="nav-logo-text" style="color:rgba(255,255,255,0.6);font-size:12px;">Instituto América<br>Córdoba</div>
-  </a>
-  <ul class="footer-nav">
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#niveles">Niveles</a></li>
-    <li><a href="#proyectos">Vida Escolar</a></li>
-    <li><a href="#admisiones">Admisiones</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <div class="footer-copy">© 2025 Instituto América — Todos los derechos reservados</div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:.5rem">
+        <div style="width:32px;height:32px;background:var(--naranja);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:13px;color:#fff">IA</div>
+        <span style="color:#fff;font-weight:600;font-size:14px;letter-spacing:.04em">Instituto América</span>
+      </div>
+      <p>Colegio cristiano evangélico en Córdoba con más de 50 años formando estudiantes en valores, fe y excelencia académica.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Institución</h4>
+      <a onclick="showPage('home')">Inicio</a>
+      <a onclick="showPage('nosotros')">Nosotros</a>
+      <a onclick="showPage('novedades')">Novedades</a>
+      <a onclick="showPage('contacto')">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Niveles</h4>
+      <a onclick="showPage('academica');setTab('inicial')">Nivel Inicial</a>
+      <a onclick="showPage('academica');setTab('primario')">Nivel Primario</a>
+      <a onclick="showPage('academica');setTab('secundario')">Nivel Secundario</a>
+      <a onclick="showPage('docentes')">Docentes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <span>Francisco del Prado 2662</span>
+      <span>Córdoba, Argentina</span>
+      <span>+54 9 351 123-4567</span>
+      <span>info@institutoamerica.com.ar</span>
+      <span style="margin-top:.5rem;color:rgba(255,255,255,.35);font-size:11px">Lun–Vie: 08:00 a 18:00</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Instituto América. Todos los derechos reservados.</p>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <a href="https://deioweb.com.ar/SAG/" target="_blank">Autogestión</a>
+      <a onclick="showPage('contacto')">Inscripciones</a>
+      <span style="color:rgba(255,255,255,.15)">·</span>
+      <span style="font-size:11px;color:rgba(255,255,255,.2)">Diseño: Kikar Agencia Digital</span>
+    </div>
+  </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Navbar scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+<script>
+// ─── ROUTING ──────────────────────────────────────────────
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a[data-page]').forEach(a => a.classList.remove('active'));
+  const page = document.getElementById('page-' + pageId);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+    // Re-trigger reveals on new page
+    setTimeout(() => {
+      page.querySelectorAll('.reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) el.classList.add('visible');
+      });
+      observeReveals();
+    }, 100);
+  }
+  const navLink = document.querySelector(`.nav-links a[data-page="${pageId}"]`);
+  if (navLink) navLink.classList.add('active');
+}
+
+// ─── TABS ─────────────────────────────────────────────────
+function setTab(tabId) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('tab-' + tabId);
+  if (panel) panel.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.textContent.toLowerCase().includes(tabId === 'inicial' ? 'inicial' : tabId === 'primario' ? 'primario' : 'secundario')) {
+      b.classList.add('active');
     }
   });
+}
 
-  // Reveal on scroll - safe version
-  const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
-    reveals.forEach(el => observer.observe(el));
+// ─── NAV SCROLL ───────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── MOBILE MENU ──────────────────────────────────────────
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ─── REVEAL ON SCROLL ─────────────────────────────────────
+function observeReveals() {
+  const reveals = document.querySelectorAll('.reveal:not(.visible)');
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+    return;
   }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold: 0.1, rootMargin:'0px 0px -40px 0px'});
+  reveals.forEach(el => obs.observe(el));
+}
+observeReveals();
+document.addEventListener('scroll', () => observeReveals(), {passive: true});
 
-  // Smooth scroll for nav links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // Animated counter for hero stats
-  function animateCounter(el, target, suffix = '') {
-    let current = 0;
-    const duration = 1800;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      el.textContent = Math.floor(current) + suffix;
-    }, 16);
-  }
-
-  // Trigger counters when hero is visible
-  const heroStats = document.querySelector('.hero-stats');
-  const statsObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      const nums = document.querySelectorAll('.stat-num');
-      anim
+// ─── INIT ─────────────────────────────────────────────────
+showPage('home');
+</script>
+</body>
+</html>
